@@ -20,10 +20,12 @@ export class NewTask {
   }
 
   onSubmit() {
-    this.add.emit({
+    const taskData: NewTaskData = {
       title: this.enteredTitle,
       summary: this.enteredSummary,
-      duedate: this.enteredDueDate
-    })
+      duedate: this.enteredDueDate  // Make sure this matches the interface
+    };
+  
+    this.add.emit(taskData);
   }
 }
