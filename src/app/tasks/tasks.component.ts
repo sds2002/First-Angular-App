@@ -11,20 +11,18 @@ import { Task } from './task/task';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-OnAddTask() {
-throw new Error('Method not implemented.');
-}
+
   @Input() name!: string;
   @Input({required: true}) userId!: string;
   isAddingTask:boolean =false;
 
   tasks =dummyTasks;
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.userId);
+    return 
   }
 
   onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    
   }
 
   OnStartAddTask() {
@@ -36,13 +34,7 @@ throw new Error('Method not implemented.');
   }
 
   onAddTask(taskData: NewTaskData) {
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),
-      userId: this.userId,
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.duedate
-    })
+  
     this.isAddingTask = false;
   }
 
