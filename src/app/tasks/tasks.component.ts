@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { dummyTasks } from '../dummy-tasks';
 import { NewTask } from './new-task/new-task';
+import { NewTaskData } from './new-task/new-task.model';
 import { Task } from './task/task';
 
 @Component({
@@ -10,8 +11,11 @@ import { Task } from './task/task';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
+OnAddTask() {
+throw new Error('Method not implemented.');
+}
   @Input() name!: string;
-  @Input({required: true}) userId!: String;
+  @Input({required: true}) userId!: string;
   isAddingTask:boolean =false;
 
   tasks =dummyTasks;
@@ -30,4 +34,16 @@ export class TasksComponent {
   onCancelAddTask() {
     this.isAddingTask = false;
   }
+
+  onAddTask(taskData: NewTaskData) {
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
+      userId: this.userId,
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.duedate
+    })
+    this.isAddingTask = false;
+  }
+
 }
