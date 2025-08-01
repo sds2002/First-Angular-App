@@ -15,8 +15,8 @@ export class UserComponent {
   @Input() avatar!: string;
   @Input() name!: string;
 
-  getImagePath() {
-    return 'assets/user' + this.avatar;
+  get imagePath() {
+    return 'assets/users/' + this.avatar;
   }
 
   onSelectUser() {
