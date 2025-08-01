@@ -1,6 +1,8 @@
 import { NewTaskData } from "./new-task/new-task.model";
+import { Injectable } from "@angular/core";
 
-class TaskService {
+@Injectable({providedIn: 'root'})
+export class TaskService {
   private tasks = [
     {
     id: 't1',
