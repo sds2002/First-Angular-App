@@ -8,7 +8,7 @@ import { ITask } from './itask.model';
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
-export class Task {
+export class TaskComponent {
   @Input({required: true}) task!: ITask;
   @Output() complete = new EventEmitter<string>();
   private taskServie = inject(TaskService)

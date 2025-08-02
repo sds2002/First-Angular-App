@@ -7,7 +7,7 @@ import { TaskService } from '../task.service';
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'
 })
-export class NewTask {
+export class NewTaskComponent {
   @Input({required: true}) userId!: string;
   @Output() close = new EventEmitter<void>();
   enteredTitle = '';
